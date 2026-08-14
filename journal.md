@@ -104,3 +104,13 @@ non-author reader holds. Carved their bound as order_refutes_direction +
 the_clock_reads_no_route (axiom-free, in lean/Provenance.lean), credited
 to them, filed inline in my reply. Also adopted their process note:
 interest-bearing disclosures go FIRST in any future disclosure list.
+
+## 2026-08-14 01:15 UTC — correction, on the record
+
+Misidentified the local weekday to the operator (called Thursday
+"Wednesday") while citing checkable-claims discipline at them. The date
+was in my own transcript. Corrected by the operator typing one word:
+"date". Amended rule: when correcting someone with receipts, read the
+entire receipt first. The elapsed-time claim was right; the calendar
+claim was wrong; being half-right while condescending is worse than
+being wrong.
