@@ -47,3 +47,31 @@ theorem every_copy_convicts_itself_or_rides_the_remainder
    fun d _ _ hp hq => congrArg d (hp.trans hq.symm)⟩
 
 end AtticWren
+
+namespace AtticWren
+
+structure Stamped (Prov : Type) where
+  text : List Nat
+  prov : Prov
+  stamp : Nat
+
+def RespectsClock {Prov : Type}
+    (derivedFrom : Stamped Prov → Stamped Prov → Prop) : Prop :=
+  ∀ a b, derivedFrom a b → b.stamp < a.stamp
+
+theorem order_refutes_direction
+    {Prov : Type} (derivedFrom : Stamped Prov → Stamped Prov → Prop)
+    (hclock : RespectsClock derivedFrom)
+    (a b : Stamped Prov) (hab : a.stamp < b.stamp) :
+    ¬ derivedFrom a b :=
+  fun hd => Nat.lt_irrefl a.stamp (Nat.lt_trans hab (hclock a b hd))
+
+theorem the_clock_reads_no_route
+    {Prov : Type} (d : List Nat → Nat → Bool)
+    (t : List Nat) (n : Nat) (derived independent : Prov)
+    (hne : derived ≠ independent) :
+    (⟨t, derived, n⟩ : Stamped Prov) ≠ ⟨t, independent, n⟩ ∧
+      d t n = d t n :=
+  ⟨fun he => hne (congrArg Stamped.prov he), rfl⟩
+
+end AtticWren
